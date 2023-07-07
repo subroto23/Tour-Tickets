@@ -1,6 +1,21 @@
 import React from "react";
 import img1 from "../images/Code-128.jpg";
 const UserPage = (props) => {
+  const sitNumber = [
+    "ড্রাইভারের পাশে",
+    "১ম সারির A",
+    "১ম সারির B",
+    "১ম সারির C",
+    "১ম সারির D",
+    "2য় সারির A",
+    "২য় সারির B",
+    "২য় সারির C",
+    "২য় সারির D",
+    "৩য় সারির A",
+    "৩য় সারির B",
+    "৩য় সারির C",
+    "৩য় সারির D",
+  ];
   return (
     <div className="grid grid-flow-col grid-cols-4 px-5 gap-4">
       <div className="flex items-center h-full">
@@ -31,7 +46,9 @@ const UserPage = (props) => {
         </div>
         <div className="flex flex-col items-center">
           <h3 className="text-sky-600 font-semibold">সিটের বিবারণঃ</h3>
-          <strong>4-A</strong>
+          <strong>
+            {sitNumber[Math.floor(Math.random() * (12 - 0 + 1)) + 0]}
+          </strong>
         </div>
         <div className="flex flex-col items-center">
           <h3 className="text-green-600 font-semibold">ভ্রমণের তারিখঃ</h3>

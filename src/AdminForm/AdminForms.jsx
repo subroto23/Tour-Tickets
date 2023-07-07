@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { exportComponentAsJPEG } from "react-component-export-image";
+import React, { useState, useRef } from "react";
 import { useFormik } from "formik";
 import Background from "../BackgroundData/Background";
 const AdminForms = () => {
@@ -29,6 +30,19 @@ const AdminForms = () => {
     (inputValue.previousAmount + inputValue.receiveAmount);
   const [show, setShow] = useState(false);
   const [adminShow, setAdminShow] = useState(true);
+
+  // Image Making setting
+  const componentRef = useRef();
+  const ComponentToPrint = React.forwardRef((props, ref) => (
+    <div className="mt-24" ref={ref}>
+      <Background
+        senderName={senderName}
+        receiverName={receiverName}
+        due={dueValue}
+        value={inputValue}
+      />
+    </div>
+  ));
   return (
     <div>
       {adminShow && (
@@ -162,14 +176,15 @@ const AdminForms = () => {
         </div>
       )}
       {show && (
-        <div className="mt-24">
-          <Background
-            senderName={senderName}
-            receiverName={receiverName}
-            due={dueValue}
-            value={inputValue}
-          />
-        </div>
+        <>
+          <ComponentToPrint ref={componentRef} />
+          <button
+            onClick={() => exportComponentAsJPEG(componentRef)}
+            className="pt-5 border-4 p-4 bg-orange-700 hover:bg-orange-300 hover:text-gray-500 text-white rounded-2xl cursor-pointer"
+          >
+            <strong>ছবি ডাউনলোড করুন</strong>
+          </button>
+        </>
       )}
     </div>
   );
