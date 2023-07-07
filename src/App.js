@@ -1,8 +1,8 @@
-import Background from "./BackgroundData/Background";
+import AdminForm from "./AdminForm/AdminForms";
 function App() {
   return (
-    <div className="flex justify-center items-center h-screen">
-      <Background />
+    <div className="flex flex-col justify-center items-center h-screen">
+      <AdminForm />
     </div>
   );
 }

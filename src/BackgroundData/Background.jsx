@@ -3,7 +3,7 @@ import React from "react";
 import AdminPage from "./AdminPage";
 import UserPage from "./UserPage";
 import { BsFillCarFrontFill } from "react-icons/bs";
-const Background = () => {
+const Background = (props) => {
   return (
     <div className="w-[900px] h-[336px] bg-white border rounded-3xl flex justify-between shadow-2xl">
       {/* Admin Side */}
@@ -12,7 +12,7 @@ const Background = () => {
           <h4 className="text-white">ভ্রমণকারীর বিবারণ</h4>
         </div>
         <div className="bg-sky-100 h-[250px] pt-5">
-          <AdminPage />
+          <AdminPage value={props} />
         </div>
         <div className="bg-sky-500 h-6 rounded-bl-3xl w-full"></div>
       </div>
@@ -38,7 +38,7 @@ const Background = () => {
         </div>
         {/* End */}
         <div>
-          <UserPage />
+          <UserPage value={props} />
         </div>
         <div className="bg-sky-500 h-6 rounded-br-3xl w-full"></div>
       </div>

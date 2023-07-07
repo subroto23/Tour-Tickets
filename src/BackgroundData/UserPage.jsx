@@ -1,6 +1,6 @@
 import React from "react";
 import img1 from "../images/Code-128.jpg";
-const UserPage = () => {
+const UserPage = (props) => {
   return (
     <div className="grid grid-flow-col grid-cols-4 px-5 gap-4">
       <div className="flex items-center h-full">
@@ -11,7 +11,7 @@ const UserPage = () => {
         <div className="flex flex-col items-center">
           <h3 className="text-orange-600 font-semibold">ভ্রমণকারীর নামঃ</h3>
           <strong className="bg-purple-600 text-white py-1 px-2">
-            সুব্রত দাস
+            {props.value.senderName}
           </strong>
         </div>
         <div className="flex flex-col items-center">
@@ -42,18 +42,18 @@ const UserPage = () => {
       <div className="flex flex-col justify-around gap-6">
         <div className="flex flex-col items-center">
           <h3 className="text-orange-600 font-semibold">ধার্যকৃত অর্থ</h3>
-          <strong>১০০০/=</strong>
+          <strong>{props.value.value.selectAmount}</strong>
         </div>
         <div className="flex flex-col items-center">
           <h3 className="text-sky-600 font-semibold">প্রদানকৃত অর্থঃ</h3>
           <strong className="font-bolder text-xl bg-blue-900 text-white p-1">
-            ১০০০/=
+            {props.value.value.receiveAmount}
           </strong>
         </div>
         <div className="flex flex-col items-center">
           <h3 className="text-green-600 font-semibold">বকেয়ার পরিমাণঃ</h3>
           <strong className="font-bolder text-xl bg-orange-900 text-white p-1">
-            ৩০০/=
+            {props.value.due}
           </strong>
         </div>
       </div>
